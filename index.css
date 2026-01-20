@@ -1,0 +1,127 @@
+/* Colors: #F9F8F6 (bg), #EFE9E3 (container), #D9CFC7 (borders), #C9B59C (buttons) */
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #F9F8F6;
+
+  display: flex;
+  justify-content: center; /* horizontal center */
+  align-items: center;     /* vertical center */
+  min-height: 100vh;       /* full viewport */
+}
+
+.container {
+  background-color: #EFE9E3;
+  padding: 30px 40px;
+  border-radius: 15px;
+  width: 360px;
+  max-width: 90%;
+  height: 80vh;            /* container fills most of screen */
+
+  display: flex;
+  flex-direction: column;  /* stack elements vertically */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #C9B59C;
+  margin-bottom: 25px;
+  font-size: 28px;
+}
+
+.add {
+  display: flex;
+  gap: 10px;
+}
+
+input {
+  flex: 1;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid #D9CFC7;
+  font-size: 16px;
+}
+
+.add-btn {
+  background-color: #C9B59C;
+  color: #F9F8F6;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#task-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  flex-grow: 1;        /* takes remaining space */
+  overflow-y: auto;    /* scroll if too many tasks */
+}
+
+li {
+  background-color: #F9F8F6;
+  padding: 12px 15px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  border: 1px solid #D9CFC7;
+}
+
+li button {
+  background-color: #C9B59C;
+  color: #F9F8F6;
+  border: none;
+  border-radius: 6px;
+  padding: 5px 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+footer {
+  text-align: center;
+  font-size: 14px;
+  color: #C9B59C;
+  margin-top: auto;      /* push footer to bottom */
+  padding-top: 15px;
+  border-top: 1px solid #D9CFC7;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 500px) {
+  .container {
+    padding: 20px;
+    width: 90%;
+    height: 80vh;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  input, .add-btn {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  li {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+
+  li button {
+    font-size: 12px;
+    padding: 4px 6px;
+  }
+
+  footer {
+    font-size: 12px;
+    padding-top: 10px;
+  }
+}
