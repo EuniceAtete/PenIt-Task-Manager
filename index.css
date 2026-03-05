@@ -1,14 +1,11 @@
-/* Colors: #F9F8F6 (bg), #EFE9E3 (container), #D9CFC7 (borders), #C9B59C (buttons) */
-
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
   background-color: #F9F8F6;
-
   display: flex;
-  justify-content: center; /* horizontal center */
-  align-items: center;     /* vertical center */
-  min-height: 100vh;       /* full viewport */
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
 .container {
@@ -17,10 +14,9 @@ body {
   border-radius: 15px;
   width: 360px;
   max-width: 90%;
-  height: 80vh;            /* container fills most of screen */
-
+  min-height: 80vh;
   display: flex;
-  flex-direction: column;  /* stack elements vertically */
+  flex-direction: column;
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
@@ -36,7 +32,7 @@ h1 {
   gap: 10px;
 }
 
-input {
+.add input {
   flex: 1;
   padding: 10px 15px;
   border-radius: 8px;
@@ -54,12 +50,17 @@ input {
   font-size: 16px;
 }
 
+.add-btn:hover {
+  opacity: 0.85;
+}
+
 #task-list {
   list-style: none;
   padding: 0;
   margin: 20px 0;
-  flex-grow: 1;        /* takes remaining space */
-  overflow-y: auto;    /* scroll if too many tasks */
+  flex-grow: 1;
+  overflow-y: auto;
+  scroll-behavior: smooth;
 }
 
 li {
@@ -72,6 +73,7 @@ li {
   align-items: center;
   font-size: 16px;
   border: 1px solid #D9CFC7;
+  word-break: break-word;
 }
 
 li button {
@@ -84,44 +86,49 @@ li button {
   font-size: 14px;
 }
 
+li button:hover {
+  opacity: 0.85;
+}
+
 footer {
   text-align: center;
   font-size: 14px;
   color: #C9B59C;
-  margin-top: auto;      /* push footer to bottom */
+  margin-top: auto;
   padding-top: 15px;
   border-top: 1px solid #D9CFC7;
 }
 
-/* ===== RESPONSIVE ===== */
 @media (max-width: 500px) {
-  .container {
-    padding: 20px;
-    width: 90%;
-    height: 80vh;
-  }
 
-  h1 {
-    font-size: 24px;
-  }
+.container {
+padding: 20px;
+width: 90%;
+}
 
-  input, .add-btn {
-    font-size: 14px;
-    padding: 8px 12px;
-  }
+h1 {
+font-size: 24px;
+}
 
-  li {
-    font-size: 14px;
-    padding: 10px 12px;
-  }
+input,
+.add-btn {
+font-size: 14px;
+padding: 8px 12px;
+}
 
-  li button {
-    font-size: 12px;
-    padding: 4px 6px;
-  }
+li {
+font-size: 14px;
+padding: 10px 12px;
+}
 
-  footer {
-    font-size: 12px;
-    padding-top: 10px;
-  }
+li button {
+font-size: 12px;
+padding: 4px 6px;
+}
+
+footer {
+font-size: 12px;
+padding-top: 10px;
+}
+
 }
