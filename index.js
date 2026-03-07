@@ -41,7 +41,7 @@ function createTaskElement(text, completed = false) {
 
   if (completed) {
     li.classList.add('completed');
-  }
+  } 
 
   const span = document.createElement('span');
   span.textContent = text;
