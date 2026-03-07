@@ -55,7 +55,7 @@ function createTaskElement(text, completed = false) {
 
   const btn = document.createElement('button');
   btn.textContent = 'X';
-  btn.title = 'Delete task';
+  btn.title = 'Delete task'; 
 
   btn.addEventListener('click', () => {
     li.style.opacity = '0';
