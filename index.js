@@ -31,6 +31,7 @@ function addTask() {
   saveTask(text);
   input.value = '';
   input.focus();
+  updateTaskCounter();
 }
 
 function createTaskElement(text, completed = false) {
@@ -51,6 +52,7 @@ function createTaskElement(text, completed = false) {
   span.addEventListener('click', () => {
     li.classList.toggle('completed');
     updateTaskStorage();
+    updateTaskCounter(); 
   });
 
   const btn = document.createElement('button');
@@ -64,6 +66,7 @@ function createTaskElement(text, completed = false) {
     setTimeout(() => {
       li.remove();
       updateTaskStorage();
+      updateTaskCounter(); 
     }, 250);
   });
 
@@ -98,6 +101,7 @@ function loadTasks() {
     li.style.transform = 'translateY(0)';
     taskList.appendChild(li);
   });
+  updateTaskCounter(); 
 }
 
 function updateTaskStorage() {
@@ -147,3 +151,21 @@ style.textContent = `
   }
 `;
 document.head.appendChild(style);
+
+function updateTaskCounter() {
+  const total = taskList.querySelectorAll('li').length;
+  const completed = taskList.querySelectorAll('li.completed').length;
+  const remaining = total - completed;
+
+  let counter = document.getElementById('task-counter');
+  if (!counter) {
+    counter = document.createElement('p');
+    counter.id = 'task-counter';
+    counter.style.cssText = 'text-align:center; font-size:0.85rem; opacity:0.6; margin-top:10px;';
+    taskList.insertAdjacentElement('afterend', counter);
+  }
+
+  counter.textContent = remaining === 0 && total === 0
+    ? 'No tasks yet. Add one!'
+    : `${remaining} of ${total} task${total !== 1 ? 's' : ''} remaining`;
+}
